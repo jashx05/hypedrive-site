@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "user_id": "giuseppe",
+  "display_name": "Giuseppe",
+  "overall": "orange",
+  "overall_message": "Dashboard pronta; monitor VPS non ancora collegato.",
+  "checked_at": null,
+  "services": {
+    "hype": {
+      "status": "orange",
+      "label": "HYPE / Enable Banking",
+      "message": "In attesa del primo health check dalla VPS.",
+      "days_until_expiry": null,
+      "consent_valid_until": null
+    },
+    "google_drive": {
+      "status": "orange",
+      "label": "Google Drive",
+      "message": "In attesa del primo health check dalla VPS.",
+      "last_success": null
+    },
+    "monthly_export": {
+      "status": "orange",
+      "label": "Export mensile",
+      "message": "In attesa del primo health check dalla VPS.",
+      "last_success": null
+    },
+    "automation": {
+      "status": "orange",
+      "label": "Automazione",
+      "message": "In attesa del primo health check dalla VPS.",
+      "last_success": null
+    },
+    "server": {
+      "status": "orange",
+      "label": "VPS / Server",
+      "message": "In attesa del primo health check dalla VPS.",
+      "detail": "Nessun dato sensibile viene pubblicato."
+    }
+  },
+  "last_sync": {
+    "status": "unknown",
+    "at": null,
+    "period": null,
+    "movements": null
+  },
+  "alerts": [
+    {
+      "severity": "orange",
+      "code": "MONITOR_NOT_CONNECTED",
+      "message": "Il sito è pronto, ma health_check.py deve ancora pubblicare gli stati reali dalla VPS."
+    }
+  ]
+}
