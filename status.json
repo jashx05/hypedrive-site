@@ -1,0 +1,22 @@
+{
+  "user": "Giuseppe",
+  "system": {
+    "status": "unknown",
+    "message": "In attesa del primo controllo"
+  },
+  "bank": {
+    "name": "HYPE / Enable Banking",
+    "status": "unknown",
+    "message": "In attesa"
+  },
+  "drive": {
+    "name": "Google Drive",
+    "status": "unknown",
+    "message": "In attesa"
+  },
+  "last_export": null,
+  "last_check": null,
+  "consent_expires_at": null,
+  "last_run_exit_code": null,
+  "last_error": null
+}
