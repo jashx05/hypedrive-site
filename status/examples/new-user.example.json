@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "user_id": "nuovo-utente",
+  "display_name": "Nuovo utente",
+  "overall": "orange",
+  "overall_message": "Ambiente appena configurato.",
+  "checked_at": "2026-10-16T17:00:00+02:00",
+  "services": {
+    "hype": {
+      "status": "green",
+      "label": "HYPE / Enable Banking",
+      "message": "Sessione autorizzata.",
+      "days_until_expiry": 170,
+      "consent_valid_until": "2027-04-04T10:59:00Z"
+    },
+    "google_drive": {
+      "status": "green",
+      "label": "Google Drive",
+      "message": "Cartella autorizzata raggiungibile.",
+      "last_success": "2026-10-16T17:00:00+02:00"
+    },
+    "monthly_export": {
+      "status": "green",
+      "label": "Export mensile",
+      "message": "Ultimo export completato.",
+      "last_success": "2026-10-02T07:02:00+02:00"
+    },
+    "automation": {
+      "status": "green",
+      "label": "Automazione",
+      "message": "Cron configurato e attivo.",
+      "last_success": "2026-10-02T07:02:00+02:00"
+    },
+    "server": {
+      "status": "green",
+      "label": "VPS / Server",
+      "message": "Server raggiungibile e spazio disco sufficiente.",
+      "detail": "Nessun dato sensibile pubblicato."
+    }
+  },
+  "last_sync": {
+    "status": "success",
+    "at": "2026-10-02T07:02:00+02:00",
+    "period": "2026-09",
+    "movements": 33
+  },
+  "alerts": []
+}
