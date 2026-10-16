@@ -2,88 +2,88 @@
 <html lang="it">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="color-scheme" content="light dark">
-  <meta name="description" content="Dashboard pubblica di stato dell'infrastruttura HypeDrive.">
-  <title>HypeDrive Status</title>
-  <link rel="stylesheet" href="assets/status.css">
+  <title>HypeDrive Monitor</title>
+  <style>
+    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#111827;background:#f6f7fb}*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px}.card{width:min(620px,100%);background:#fff;border:1px solid #e5e7eb;border-radius:22px;padding:30px;box-shadow:0 18px 55px rgba(15,23,42,.08)}h1{margin:0 0 8px;font-size:1.7rem}.sub{margin:0 0 28px;color:#6b7280}.user{font-size:.83rem;font-weight:800;letter-spacing:.12em;margin-bottom:18px}.row{display:grid;grid-template-columns:18px 1fr auto;gap:11px;align-items:center;padding:11px 0;border-bottom:1px solid #f0f1f4}.row:last-of-type{border-bottom:0}.dot{width:11px;height:11px;border-radius:50%;background:#9ca3af;box-shadow:0 0 0 4px rgba(156,163,175,.12)}.green{background:#16a34a;box-shadow:0 0 0 4px rgba(22,163,74,.12)}.orange{background:#f59e0b;box-shadow:0 0 0 4px rgba(245,158,11,.13)}.red{background:#dc2626;box-shadow:0 0 0 4px rgba(220,38,38,.12)}.value{font-weight:700;text-align:right}.consent{margin-top:24px;padding:18px;border-radius:16px;background:#f8fafc}.consent-title{font-weight:800;margin-bottom:5px}.consent-text{color:#4b5563}.error{margin-top:16px;padding:13px 15px;border-radius:13px;background:#fff7ed;color:#9a3412;font-size:.92rem;display:none}.footer{margin-top:22px;color:#9ca3af;font-size:.8rem;text-align:center}@media(prefers-color-scheme:dark){:root{color:#f3f4f6;background:#0b1020}.card{background:#111827;border-color:#263044;box-shadow:none}.sub,.consent-text{color:#9ca3af}.row{border-color:#202a3a}.consent{background:#172033}.error{background:#2a1b12;color:#fdba74}}@media(max-width:520px){.card{padding:22px}.row{grid-template-columns:18px 1fr}.value{grid-column:2;text-align:left;color:#6b7280;font-weight:600}}
+  </style>
 </head>
 <body>
-  <header class="topbar">
-    <div class="shell topbar-inner">
-      <a class="brand" href="../index.html" aria-label="HypeDrive home">
-        <span class="brand-mark" aria-hidden="true">H</span>
-        <span>HypeDrive</span>
-      </a>
-      <nav class="topnav" aria-label="Navigazione principale">
-        <a href="../index.html">Home</a>
-        <a class="active" href="./">Status</a>
-        <a href="../privacy.html">Privacy</a>
-      </nav>
-    </div>
-  </header>
+  <main class="card">
+    <h1>HypeDrive Monitor</h1>
+    <p class="sub">Stato dell'ultima esecuzione mensile</p>
+    <div class="user" id="user">GIUSEPPE</div>
 
-  <main class="shell page">
-    <section class="hero">
-      <div>
-        <p class="eyebrow">Infrastructure monitoring</p>
-        <h1>Stato HypeDrive</h1>
-        <p class="hero-copy">Controllo sintetico di autenticazione HYPE, Google Drive, export mensile, automazioni e server.</p>
-      </div>
-      <div id="global-state" class="global-state state-orange" aria-live="polite">
-        <span class="status-dot" aria-hidden="true"></span>
-        <span id="global-state-label">Caricamento stato…</span>
-      </div>
+    <div class="row"><span class="dot" id="system-dot"></span><span>Sistema</span><span class="value" id="system-value">In attesa</span></div>
+    <div class="row"><span class="dot" id="bank-dot"></span><span id="bank-name">HYPE / Enable Banking</span><span class="value" id="bank-value">In attesa</span></div>
+    <div class="row"><span class="dot" id="drive-dot"></span><span id="drive-name">Google Drive</span><span class="value" id="drive-value">In attesa</span></div>
+    <div class="row"><span class="dot" id="export-dot"></span><span>Ultimo export</span><span class="value" id="export-value">—</span></div>
+    <div class="row"><span class="dot" id="check-dot"></span><span>Ultimo controllo</span><span class="value" id="check-value">—</span></div>
+
+    <section class="consent">
+      <div class="consent-title">Consenso HYPE</div>
+      <div class="consent-text" id="consent-value">In attesa del primo controllo</div>
     </section>
-
-    <section class="legend" aria-label="Legenda stati">
-      <span><i class="legend-dot green"></i>Operativo</span>
-      <span><i class="legend-dot orange"></i>Attenzione / controllo necessario</span>
-      <span><i class="legend-dot red"></i>Intervento richiesto</span>
-    </section>
-
-    <section class="summary-grid" aria-label="Riepilogo">
-      <article class="summary-card">
-        <span class="summary-label">Utenti monitorati</span>
-        <strong id="summary-users">—</strong>
-      </article>
-      <article class="summary-card">
-        <span class="summary-label">Operativi</span>
-        <strong id="summary-green">—</strong>
-      </article>
-      <article class="summary-card">
-        <span class="summary-label">Con attenzione</span>
-        <strong id="summary-orange">—</strong>
-      </article>
-      <article class="summary-card">
-        <span class="summary-label">In errore</span>
-        <strong id="summary-red">—</strong>
-      </article>
-    </section>
-
-    <section class="section-heading">
-      <div>
-        <h2>Ambienti</h2>
-        <p>Ogni card rappresenta un ambiente utente indipendente.</p>
-      </div>
-      <button id="refresh-button" class="refresh-button" type="button">Aggiorna</button>
-    </section>
-
-    <div id="users-grid" class="users-grid" aria-live="polite"></div>
-
-    <section class="security-note">
-      <h2>Dati mostrati</h2>
-      <p>Questa pagina espone solo informazioni di salute del sistema. Non vengono pubblicati transazioni, saldi, IBAN, session ID, token OAuth, refresh token o credenziali bancarie.</p>
-    </section>
+    <div class="error" id="error-box"></div>
+    <div class="footer">Aggiornamento automatico dopo l'export mensile del giorno 2</div>
   </main>
 
-  <footer class="footer">
-    <div class="shell footer-inner">
-      <span>HypeDrive Status</span>
-      <span id="page-updated">Aggiornamento automatico ogni 60 secondi</span>
-    </div>
-  </footer>
+<script>
+const $=id=>document.getElementById(id);
+const setDot=(id,status)=>{const el=$(id);el.className='dot '+(['green','orange','red'].includes(status)?status:'');};
+const fmt=d=>new Intl.DateTimeFormat('it-IT',{timeZone:'Europe/Rome',day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}).format(d);
+const fmtDate=d=>new Intl.DateTimeFormat('it-IT',{timeZone:'Europe/Rome',day:'2-digit',month:'2-digit',year:'numeric'}).format(d);
 
-  <script src="assets/status.js" defer></script>
+function expectedCheckMissing(lastCheck){
+  const now=new Date();
+  const parts=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Rome',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(now);
+  const obj=Object.fromEntries(parts.map(p=>[p.type,p.value]));
+  const day=Number(obj.day);
+  if(day<3) return false;
+  if(!lastCheck) return true;
+  const lp=new Intl.DateTimeFormat('en-CA',{timeZone:'Europe/Rome',year:'numeric',month:'2-digit'}).formatToParts(lastCheck);
+  const lo=Object.fromEntries(lp.map(p=>[p.type,p.value]));
+  return lo.year!==obj.year || lo.month!==obj.month;
+}
+
+function render(data){
+  $('user').textContent=(data.user||'Giuseppe').toUpperCase();
+  $('bank-name').textContent=data.bank?.name||'Banca / Provider';
+  $('drive-name').textContent=data.drive?.name||'Google Drive';
+
+  let systemStatus=data.system?.status||'unknown';
+  let systemMessage=data.system?.message||'In attesa';
+  const lastCheck=data.last_check?new Date(data.last_check):null;
+  if(expectedCheckMissing(lastCheck) && systemStatus!=='red'){
+    systemStatus='orange';
+    systemMessage='Controllo mensile non eseguito';
+  }
+
+  setDot('system-dot',systemStatus); $('system-value').textContent=systemMessage;
+  setDot('bank-dot',data.bank?.status); $('bank-value').textContent=data.bank?.message||'In attesa';
+  setDot('drive-dot',data.drive?.status); $('drive-value').textContent=data.drive?.message||'In attesa';
+
+  if(data.last_export){setDot('export-dot','green');$('export-value').textContent=fmtDate(new Date(data.last_export));}
+  else {$('export-value').textContent='Nessun export registrato';}
+
+  if(lastCheck){setDot('check-dot','green');$('check-value').textContent=fmt(lastCheck);}
+  else {$('check-value').textContent='Nessun controllo registrato';}
+
+  if(data.consent_expires_at){
+    const expiry=new Date(data.consent_expires_at);const days=Math.ceil((expiry-new Date())/86400000);
+    if(days<0){$('consent-value').textContent='scaduto';}
+    else if(days===0){$('consent-value').textContent='scade oggi';}
+    else {$('consent-value').textContent=`scade tra ${days} giorni`;}
+  }
+
+  if(data.last_error){$('error-box').style.display='block';$('error-box').textContent=data.last_error;}
+}
+
+fetch('../status.json?ts='+Date.now(),{cache:'no-store'})
+  .then(r=>{if(!r.ok)throw new Error('status.json non disponibile');return r.json();})
+  .then(render)
+  .catch(err=>{setDot('system-dot','orange');$('system-value').textContent='Stato non disponibile';$('error-box').style.display='block';$('error-box').textContent=err.message;});
+</script>
 </body>
 </html>
