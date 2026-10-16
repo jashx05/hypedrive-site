@@ -1,0 +1,25 @@
+# HypeDrive public repository: never commit secrets
+.env
+.env.*
+*.pem
+*.key
+*.p12
+*.pfx
+
+# OAuth / banking session material
+session.json
+google_token.json
+google_oauth_client.json
+credentials.json
+token.json
+
+# Private configuration / credentials folders
+credentials/
+private/
+secrets/
+
+# Generated local files
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
