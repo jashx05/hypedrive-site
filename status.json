@@ -1,22 +1,22 @@
 {
   "user": "Giuseppe",
   "system": {
-    "status": "unknown",
-    "message": "In attesa del primo controllo"
+    "status": "green",
+    "message": "OK"
   },
   "bank": {
     "name": "HYPE / Enable Banking",
-    "status": "unknown",
-    "message": "In attesa"
+    "status": "green",
+    "message": "OK"
   },
   "drive": {
     "name": "Google Drive",
-    "status": "unknown",
-    "message": "In attesa"
+    "status": "green",
+    "message": "OK"
   },
-  "last_export": null,
-  "last_check": null,
-  "consent_expires_at": null,
-  "last_run_exit_code": null,
+  "last_export": "2026-10-16T19:37:21.576693+02:00",
+  "last_check": "2026-10-16T19:37:21.576467+02:00",
+  "consent_expires_at": "2027-04-09T13:52:11.543131Z",
+  "last_run_exit_code": 0,
   "last_error": null
 }
